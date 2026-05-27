@@ -7,6 +7,8 @@ export default function HomePage() {
     <>
       <h1>首頁</h1>
       <div>Hello JK</div>
+      <a href="/about">關於網站</a>
+      <a href="/products">商品總覽</a>
     </>
   );
 }
