@@ -7,9 +7,17 @@ export default function HomePage() {
     <>
       <h1>首頁</h1>
       <div>Hello JK</div>
-      <a href="/about">關於網站</a>
-      <a href="/products">商品總覽</a>
-      <a href="/counter">計數器練習</a>
+      <a href="/about">關於網站 ( /about )</a>
+      <br />
+      <a href="/products">商品總覽 ( /products )</a>
+      <br />
+      <a href="/counter">計數器練習 ( /counter )</a>
+      <br />
+      <a href="/ch3-jsx/render">CH3 - JSX 渲染範例 ( /ch3-jsx/render )</a>
+      <br />
+      <a href="/ch3-jsx/attributes">
+        CH3 - JSX 標籤屬性 ( /ch3-jsx/attributes )
+      </a>
     </>
   );
 }
