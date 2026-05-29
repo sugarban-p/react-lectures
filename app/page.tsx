@@ -19,6 +19,9 @@ export default function HomePage() {
       <a href="/ch3-jsx/attributes">JSX 標籤屬性 ( /ch3-jsx/attributes )</a>
       <br />
       <a href="/ch3-jsx/basic-synax">JSX 基本語法 ( /ch3-jsx/basic-synax )</a>
+      <hr />
+      <h4>CH4</h4>
+      <a href="/ch4-state/cart">更新狀態練習 - 購物車 ( /ch4-state/cart )</a>
     </>
   );
 }
