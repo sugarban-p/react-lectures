@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export default function CounterPage() {
+export default function CounterV1Page() {
   // const [目前的值, 修改這個值的方法] = useState(初始值);
   const [count, setCount] = useState(0);
   return (

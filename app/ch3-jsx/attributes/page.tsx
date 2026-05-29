@@ -14,8 +14,19 @@ export default function AttributesPage() {
         &apos;value2&apos;&#125;&#125;;
       </div>
       <br />
-      <h3>VS Code 轉換延伸套件 - html to JSX</h3>
-      <div>&#42; 不要手動轉換 &#42;</div>
+      <h3>HTML to JSX 工具</h3>
+      <div>
+        1.{' '}
+        <a href="https://marketplace.visualstudio.com/items?itemName=riazxrazor.html-to-jsx">
+          {' '}
+          VS Code 轉換延伸套件 - html to JSX
+        </a>
+      </div>
+      <div>
+        2.&nbsp;
+        <a href="https://transform.tools/html-to-jsx">線上轉換工具</a>
+      </div>
+      <div>&#42; 總之不要手動轉換 &#42;</div>
     </>
   );
 }
