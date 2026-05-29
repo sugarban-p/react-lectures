@@ -6,6 +6,25 @@ const initialProducts = [
   {
     id: 0,
     name: 'Baklava',
+  },
+  {
+    id: 1,
+    name: 'Cheese',
+  },
+  {
+    id: 2,
+    name: 'Spaghetti',
+  },
+  {
+    id: 3,
+    name: 'Pizza',
+  },
+];
+
+const cartProducts = [
+  {
+    id: 0,
+    name: 'Baklava',
     count: 1,
   },
   {
@@ -21,7 +40,8 @@ const initialProducts = [
 ];
 
 export default function CartPage() {
-  const [products, setProducts] = useState(initialProducts);
+  const [items, setItems] = useState(initialProducts);
+  const [products, setProducts] = useState(cartProducts);
 
   // 標準流程
   // function handleIncreaseV1(productId: number) {
@@ -94,44 +114,71 @@ export default function CartPage() {
     setProducts(products.filter((product) => product.id !== productId));
   }
 
+  // 新增商品
+  function handleAddCart(item: { id: number; name: string }) {
+    const foundIndex = products.findIndex((product) => product.id === item.id);
+    if (foundIndex !== -1) {
+      handleIncreaseV3(item.id);
+    } else {
+      setProducts([...products, { ...item, count: 1 }]);
+    }
+  }
+
   return (
-    <ul>
-      {products.map((product) => (
-        <li key={product.id}>
-          {product.name} (<b>{product.count}</b>)
-          <button
-            onClick={() => {
-              if (product.count === 1) {
-                if (
-                  confirm(
-                    `Are you sure to delete ${product.name} from the cart?`
-                  )
-                ) {
-                  handleRemoveV2(product.id);
+    <>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.name}
+            <button
+              onClick={() => {
+                handleAddCart(item);
+              }}
+            >
+              Add to cart
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} (<b>{product.count}</b>)
+            <button
+              onClick={() => {
+                if (product.count === 1) {
+                  if (
+                    confirm(
+                      `Are you sure to delete ${product.name} from the cart?`
+                    )
+                  ) {
+                    handleRemoveV2(product.id);
+                  }
+                } else {
+                  handleDecrease(product.id);
                 }
-              } else {
-                handleDecrease(product.id);
-              }
-            }}
-          >
-            -
-          </button>{' '}
-          <button
-            onClick={() => {
-              handleIncreaseV3(product.id);
-            }}
-          >
-            +
-          </button>{' '}
-          <button
-            onClick={() => {
-              handleRemoveV2(product.id);
-            }}
-          >
-            x
-          </button>
-        </li>
-      ))}
-    </ul>
+              }}
+            >
+              -
+            </button>{' '}
+            <button
+              onClick={() => {
+                handleIncreaseV3(product.id);
+              }}
+            >
+              +
+            </button>{' '}
+            <button
+              onClick={() => {
+                handleRemoveV2(product.id);
+              }}
+            >
+              x
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
