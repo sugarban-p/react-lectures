@@ -64,6 +64,17 @@ export default function CartPage() {
     );
   }
 
+  // 減少
+  function handleDecrease(productId: number) {
+    setProducts(
+      products.map((product) =>
+        product.id === productId && product.count > 0 // 商品數量不可為負
+          ? { ...product, count: product.count - 1 }
+          : product
+      )
+    );
+  }
+
   return (
     <ul>
       {products.map((product) => (
@@ -71,11 +82,18 @@ export default function CartPage() {
           {product.name} (<b>{product.count}</b>)
           <button
             onClick={() => {
+              handleDecrease(product.id);
+            }}
+          >
+            -
+          </button>
+          <button
+            onClick={() => {
               handleIncreaseV3(product.id);
             }}
           >
             +
-          </button>
+          </button>{' '}
         </li>
       ))}
     </ul>
