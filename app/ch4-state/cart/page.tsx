@@ -75,6 +75,25 @@ export default function CartPage() {
     );
   }
 
+  // 移除商品 (splice)
+  // function handleRemoveV1(productId: number) {
+  //   const newProducts: { id: number; name: string; count: number }[] =
+  //     JSON.parse(JSON.stringify(products));
+  //   // 2. 在副本上修改
+  //   const foundIndex = newProducts.findIndex((v) => v.id === productId);
+  //   if (foundIndex !== -1) {
+  //     // splice(起始索引, 刪除數量)
+  //     newProducts.splice(foundIndex, 1);
+  //     // 3. 呼叫 set 更新狀態
+  //     setProducts(newProducts);
+  //   }
+  // }
+
+  // 移除商品 (filter)
+  function handleRemoveV2(productId: number) {
+    setProducts(products.filter((product) => product.id !== productId));
+  }
+
   return (
     <ul>
       {products.map((product) => (
@@ -82,11 +101,21 @@ export default function CartPage() {
           {product.name} (<b>{product.count}</b>)
           <button
             onClick={() => {
-              handleDecrease(product.id);
+              if (product.count === 1) {
+                if (
+                  confirm(
+                    `Are you sure to delete ${product.name} from the cart?`
+                  )
+                ) {
+                  handleRemoveV2(product.id);
+                }
+              } else {
+                handleDecrease(product.id);
+              }
             }}
           >
             -
-          </button>
+          </button>{' '}
           <button
             onClick={() => {
               handleIncreaseV3(product.id);
@@ -94,6 +123,13 @@ export default function CartPage() {
           >
             +
           </button>{' '}
+          <button
+            onClick={() => {
+              handleRemoveV2(product.id);
+            }}
+          >
+            x
+          </button>
         </li>
       ))}
     </ul>
