@@ -17,6 +17,12 @@ export default function TodoPage() {
   // 宣告給文字輸入框使用的狀態
   const [inputText, setInputText] = useState('');
 
+  const onRemove = (todoId: string) => {
+    if (confirm('Are you sure to remove this task?')) {
+      setTodos(todos.filter((todo) => todo.id !== todoId));
+    }
+  };
+
   return (
     <>
       <h1>待辨事項</h1>
@@ -41,7 +47,18 @@ export default function TodoPage() {
       />
       <ul>
         {todos.map((todo) => {
-          return <li key={todo.id}>{todo.text}</li>;
+          return (
+            <li key={todo.id}>
+              {todo.text}{' '}
+              <button
+                onClick={() => {
+                  onRemove(todo.id);
+                }}
+              >
+                X
+              </button>
+            </li>
+          );
         })}
       </ul>
     </>
