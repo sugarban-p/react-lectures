@@ -22,6 +22,8 @@ export default function HomePage() {
       <hr />
       <h4>CH4</h4>
       <a href="/ch4-state/cart">更新狀態練習 - 購物車 ( /ch4-state/cart )</a>
+      <br />
+      <a href="/ch4-state/todo">更新狀態練習 - 代辦事項 ( /ch4-state/todo )</a>
     </>
   );
 }
