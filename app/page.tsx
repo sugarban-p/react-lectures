@@ -26,6 +26,12 @@ export default function HomePage() {
       <a href="/ch4-state/todo">更新狀態練習 - 代辦事項 ( /ch4-state/todo )</a>
       <br />
       <a href="/ch4-state/immer">immer使用範例 ( /ch4-state/immer )</a>
+      <hr />
+      <h4>CH5</h4>
+      <a href="/ch5-props/parent-child">
+        父/子層關係 ( /ch5-props/parent-child )
+      </a>
+      <br />
     </>
   );
 }

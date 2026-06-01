@@ -1,0 +1,9 @@
+.container-parent {
+  border: 1px solid orange;
+  padding: 5px;
+}
+
+.container-child {
+  border: 1px solid red;
+  padding: 5px;
+}
