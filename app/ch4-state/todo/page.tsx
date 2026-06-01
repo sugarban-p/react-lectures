@@ -4,11 +4,12 @@ import { useState } from 'react';
 
 // mock data
 const initData = [
+  { id: 'u002', text: '寫作業', completed: true },
   {
     id: 'u001',
     text: '繳電信費',
+    completed: false,
   },
-  { id: 'u002', text: '寫作業' },
 ];
 
 export default function TodoPage() {
@@ -21,6 +22,18 @@ export default function TodoPage() {
     if (confirm('Are you sure to remove this task?')) {
       setTodos(todos.filter((todo) => todo.id !== todoId));
     }
+  };
+
+  const toggleChecked = (todoId: string) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === todoId) {
+          return { ...todo, completed: !todo.completed };
+        } else {
+          return todo;
+        }
+      })
+    );
   };
 
   return (
@@ -39,7 +52,10 @@ export default function TodoPage() {
         // 送出文字
         onKeyDown={(e) => {
           if (e.key === 'Enter' && inputText.trim()) {
-            setTodos([{ id: crypto.randomUUID(), text: inputText }, ...todos]);
+            setTodos([
+              { id: crypto.randomUUID(), text: inputText, completed: false },
+              ...todos,
+            ]);
             // 清空輸入框
             setInputText('');
           }
@@ -49,6 +65,15 @@ export default function TodoPage() {
         {todos.map((todo) => {
           return (
             <li key={todo.id}>
+              <input
+                type="checkbox"
+                // 如果要能修改狀態: checked + onChange
+                // 如果不能修改狀態: defaultChecked
+                checked={todo.completed}
+                onChange={() => {
+                  toggleChecked(todo.id);
+                }}
+              />
               {todo.text}{' '}
               <button
                 onClick={() => {
