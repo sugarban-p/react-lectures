@@ -1,13 +1,40 @@
 'use client';
 
-// import { useState } from 'react';
+import { Todo } from '../_types/todo';
 
-// export interface ListItemsProps {}
+export interface ListItemsProps {
+  todo: Todo;
+  onRemove: (todoId: string) => void;
+  toggleChecked: (todoId: string) => void;
+}
 
-export default function ListItems() {
+export default function ListItems({
+  todo,
+  onRemove,
+  toggleChecked,
+}: ListItemsProps) {
   return (
     <>
-      <div>ListItems</div>
+      {/* 有 Array.map() 的地方才需要 key */}
+      <li>
+        <input
+          type="checkbox"
+          // 如果要能修改狀態: checked + onChange
+          // 如果不能修改狀態: defaultChecked
+          checked={todo.completed}
+          onChange={() => {
+            toggleChecked(todo.id);
+          }}
+        />
+        {todo.text}{' '}
+        <button
+          onClick={() => {
+            onRemove(todo.id);
+          }}
+        >
+          X
+        </button>
+      </li>
     </>
   );
 }

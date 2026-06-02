@@ -1,6 +1,7 @@
 'use client';
 
 import { Todo } from '../_types/todo';
+import ListItems from './list-items';
 
 export interface ListProps {
   todos?: Todo[];
@@ -18,25 +19,12 @@ export default function List({
       <ul>
         {todos.map((todo) => {
           return (
-            <li key={todo.id}>
-              <input
-                type="checkbox"
-                // 如果要能修改狀態: checked + onChange
-                // 如果不能修改狀態: defaultChecked
-                checked={todo.completed}
-                onChange={() => {
-                  toggleChecked(todo.id);
-                }}
-              />
-              {todo.text}{' '}
-              <button
-                onClick={() => {
-                  onRemove(todo.id);
-                }}
-              >
-                X
-              </button>
-            </li>
+            <ListItems
+              key={todo.id}
+              todo={todo}
+              onRemove={onRemove}
+              toggleChecked={toggleChecked}
+            ></ListItems>
           );
         })}
       </ul>
