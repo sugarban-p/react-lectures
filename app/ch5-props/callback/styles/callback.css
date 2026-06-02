@@ -1,0 +1,17 @@
+.container-parent {
+  border: 1px solid orange;
+  padding: 5px;
+  margin: 15px 0;
+}
+
+.container-child-a {
+  border: 1px solid red;
+  padding: 5px;
+  margin: 15px 0;
+}
+
+.container-child-b {
+  border: 1px solid red;
+  padding: 5px;
+  margin: 15px 0;
+}
