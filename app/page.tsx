@@ -32,7 +32,9 @@ export default function HomePage() {
         父/子層關係 ( /ch5-props/parent-child )
       </a>
       <br />
-      <a href="/ch5-props/callback">回呼函式 - 子→父 ( /ch5-props/callback )</a>
+      <a href="/ch5-props/children">
+        props.children 範例 ( /ch5-props/children )
+      </a>
       <br />
     </>
   );
