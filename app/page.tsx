@@ -11,7 +11,7 @@ export default function HomePage() {
       <br />
       <a href="/products">商品總覽 ( /products )</a>
       <br />
-      <a href="/counter-v1">計數器練習 ( /counter )</a>
+      <a href="/counter-v1">計數器練習v1 ( /counter-v1 )</a>
       <hr />
       <h4>CH3</h4>
       <a href="/ch3-jsx/render">JSX 渲染範例 ( /ch3-jsx/render )</a>
@@ -21,9 +21,13 @@ export default function HomePage() {
       <a href="/ch3-jsx/basic-synax">JSX 基本語法 ( /ch3-jsx/basic-synax )</a>
       <hr />
       <h4>CH4</h4>
-      <a href="/ch4-state/cart">更新狀態練習 - 購物車 ( /ch4-state/cart )</a>
+      <a href="/ch4-state/cart-v1">
+        更新狀態練習 - 購物車v1 ( /ch4-state/cart-v1 )
+      </a>
       <br />
-      <a href="/ch4-state/todo">更新狀態練習 - 代辦事項 ( /ch4-state/todo )</a>
+      <a href="/ch4-state/todo-v1">
+        更新狀態練習 - 待辦事項v1 ( /ch4-state/todo-v1 )
+      </a>
       <br />
       <a href="/ch4-state/immer">immer使用範例 ( /ch4-state/immer )</a>
       <hr />
