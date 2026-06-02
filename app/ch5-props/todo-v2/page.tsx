@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Todo } from './_types/todo';
 import AddForm from './_components/add-form';
+import List from './_components/list';
 
 // mock data
 const initData = [
@@ -46,31 +47,11 @@ export default function TodoPage() {
       <h1>待辨事項</h1>
       <hr />
       <AddForm onAdd={onAdd}></AddForm>
-      <ul>
-        {todos.map((todo) => {
-          return (
-            <li key={todo.id}>
-              <input
-                type="checkbox"
-                // 如果要能修改狀態: checked + onChange
-                // 如果不能修改狀態: defaultChecked
-                checked={todo.completed}
-                onChange={() => {
-                  toggleChecked(todo.id);
-                }}
-              />
-              {todo.text}{' '}
-              <button
-                onClick={() => {
-                  onRemove(todo.id);
-                }}
-              >
-                X
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <List
+        todos={todos}
+        onRemove={onRemove}
+        toggleChecked={toggleChecked}
+      ></List>
     </>
   );
 }
