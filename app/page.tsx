@@ -40,6 +40,10 @@ export default function HomePage() {
         props.children 範例 ( /ch5-props/children )
       </a>
       <br />
+      <a href="/ch5-props/todo-v2">
+        屬性練習 - 待辦事項v2 ( /ch5-props/todo-v2 )
+      </a>
+      <br />
     </>
   );
 }
