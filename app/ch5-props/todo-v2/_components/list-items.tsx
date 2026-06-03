@@ -26,7 +26,14 @@ export default function ListItems({
             toggleChecked(todo.id);
           }}
         />
-        {todo.text}{' '}
+        <span
+          style={{
+            color: todo.completed ? 'gray' : 'inherit',
+            textDecoration: todo.completed ? 'line-through' : 'none',
+          }}
+        >
+          {' ' + todo.text + ' '}
+        </span>
         <button
           onClick={() => {
             onRemove(todo.id);
