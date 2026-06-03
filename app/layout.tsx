@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { ThemeProvider } from '@/context/theme'; // @ : 專案根目錄
+import ThemeSwitch from './_components/theme-switch';
 
 export const metadata: Metadata = {
   title: 'React 課程範例',
@@ -13,7 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* 在根元件包上 provider，提供context給底下所有頁面 */}
+        <ThemeProvider>
+          <ThemeSwitch />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
