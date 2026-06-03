@@ -28,6 +28,7 @@ export default function AddForm({ onAdd = () => {} }: AddFormProps) {
               id: crypto.randomUUID(),
               text: inputText,
               completed: false,
+              isEditing: false,
             };
             onAdd(newTodo);
             // 清空輸入框

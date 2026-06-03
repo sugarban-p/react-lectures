@@ -7,11 +7,12 @@ import List from './_components/list';
 
 // mock data
 const initData = [
-  { id: 'u002', text: '寫作業', completed: true },
+  { id: 'u002', text: '寫作業', completed: true, isEditing: false },
   {
     id: 'u001',
     text: '繳電信費',
     completed: false,
+    isEditing: false,
   },
 ];
 
@@ -25,9 +26,28 @@ export default function TodoPage() {
   };
 
   const onRemove = (todoId: string) => {
-    if (confirm('Are you sure to remove this task?')) {
-      setTodos(todos.filter((todo) => todo.id !== todoId));
-    }
+    setTodos(todos.filter((todo) => todo.id !== todoId));
+  };
+
+  const onEdit = (todoId: string) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === todoId) {
+          return { ...todo, isEditing: true };
+        } else {
+          return { ...todo, isEditing: false }; // 強制其他事項退出編輯
+        }
+      })
+    );
+  };
+
+  const onUpdate = (todoId: string, updateText: string) => {
+    const newTodos = todos.map((todo) => {
+      return todo.id === todoId
+        ? { ...todo, text: updateText, isEditing: false }
+        : { ...todo };
+    });
+    setTodos(newTodos);
   };
 
   const toggleChecked = (todoId: string) => {
@@ -51,6 +71,8 @@ export default function TodoPage() {
         todos={todos}
         onRemove={onRemove}
         toggleChecked={toggleChecked}
+        onEdit={onEdit}
+        onUpdate={onUpdate}
       ></List>
     </>
   );

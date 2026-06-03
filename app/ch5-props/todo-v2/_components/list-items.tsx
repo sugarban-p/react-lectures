@@ -6,12 +6,14 @@ export interface ListItemsProps {
   todo: Todo;
   onRemove: (todoId: string) => void;
   toggleChecked: (todoId: string) => void;
+  onEdit: (todoId: string) => void;
 }
 
 export default function ListItems({
   todo,
   onRemove,
   toggleChecked,
+  onEdit,
 }: ListItemsProps) {
   return (
     <>
@@ -36,7 +38,16 @@ export default function ListItems({
         </span>
         <button
           onClick={() => {
-            onRemove(todo.id);
+            onEdit(todo.id);
+          }}
+        >
+          編輯
+        </button>
+        <button
+          onClick={() => {
+            if (confirm('Are you sure to remove this task?')) {
+              onRemove(todo.id);
+            }
           }}
         >
           X
