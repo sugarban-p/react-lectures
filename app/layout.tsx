@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/context/theme'; // @ : 專案根目錄
+import { CartProvider } from '@/context/cart'; // @ : 專案根目錄
 import ThemeSwitch from './_components/theme-switch';
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function RootLayout({
         {/* 在根元件包上 provider，提供context給底下所有頁面 */}
         <ThemeProvider>
           <ThemeSwitch />
-          {children}
+          <CartProvider>{children}</CartProvider>
         </ThemeProvider>
       </body>
     </html>
