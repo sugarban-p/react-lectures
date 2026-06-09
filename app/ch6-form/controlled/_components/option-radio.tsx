@@ -1,27 +1,40 @@
 'use client';
 
-const options = [
-  {
-    id: 1,
-    value: 'dog',
-    text: '狗',
-  },
-  {
-    id: 2,
-    value: 'cat',
-    text: '貓',
-  },
-  {
-    id: 3,
-    value: 'fish',
-    text: '魚',
-  },
-];
-
 import { useState } from 'react';
 
 export default function OptionRadio() {
-  const [selected, setSelected] = useState('dog');
+  const [options, setOptions] = useState([
+    {
+      id: 1,
+      value: 'dog',
+      label: '狗',
+      checked: true,
+    },
+    {
+      id: 2,
+      value: 'cat',
+      label: '貓',
+      checked: false,
+    },
+    {
+      id: 3,
+      value: 'fish',
+      label: '魚',
+      checked: false,
+    },
+  ]);
+
+  const onToggle = (optionId: number) => {
+    const newOptions = options.map((option) => {
+      if (option.id === optionId) {
+        return { ...option, checked: !option.checked };
+      } else {
+        return { ...option, checked: false };
+      }
+    });
+    setOptions(newOptions);
+  };
+
   return (
     <>
       <h3>單選群組</h3>
@@ -31,12 +44,12 @@ export default function OptionRadio() {
             <input
               type="radio"
               value={option.value}
-              checked={selected === option.value ? true : false}
-              onChange={(e) => {
-                setSelected(e.target.value);
+              checked={option.checked}
+              onChange={() => {
+                onToggle(option.id);
               }}
             />
-            {option.text}
+            {option.label}
           </label>
         );
       })}
