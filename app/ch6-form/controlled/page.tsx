@@ -2,6 +2,7 @@
 
 import InputText from './_components/input-text';
 import TextArea from './_components/text-area';
+import OptionSelect from './_components/option-select';
 
 export default function ControlledPage() {
   return (
@@ -11,6 +12,8 @@ export default function ControlledPage() {
       <InputText></InputText>
       <hr style={{ border: '1px dashed #5C5C5B' }} />
       <TextArea></TextArea>
+      <hr style={{ border: '1px dashed #5C5C5B' }} />
+      <OptionSelect></OptionSelect>
     </>
   );
 }
