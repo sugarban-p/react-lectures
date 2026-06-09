@@ -3,6 +3,7 @@
 import InputText from './_components/input-text';
 import TextArea from './_components/text-area';
 import OptionSelect from './_components/option-select';
+import OptionRadio from './_components/option-radio';
 
 export default function ControlledPage() {
   return (
@@ -14,6 +15,8 @@ export default function ControlledPage() {
       <TextArea></TextArea>
       <hr style={{ border: '1px dashed #5C5C5B' }} />
       <OptionSelect></OptionSelect>
+      <hr style={{ border: '1px dashed #5C5C5B' }} />
+      <OptionRadio></OptionRadio>
     </>
   );
 }
