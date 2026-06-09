@@ -52,10 +52,13 @@ export default function HomePage() {
         <a href="/ch5-props/cart-v2">
           context 練習 - 購物車v2 ( /ch5-props/cart-v2 )
         </a>
-        <br />{' '}
+        <br />
         <a href="/ch5-props/user/login">
           context 練習 - 會員登入 ( /ch5-props/user/login )
         </a>
+        <br />
+        <h4>CH6</h4>
+        <a href="/ch6-form/controlled">可控表單元件 ( /ch6-form/controlled )</a>
         <br />
       </div>
     </>

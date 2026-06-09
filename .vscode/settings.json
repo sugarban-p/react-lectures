@@ -74,6 +74,7 @@
   "emmet.triggerExpansionOnTab": true,
   "files.associations": {
     "*.tsx": "typescriptreact",
-    "*.jsx": "javascriptreact"
+    "*.jsx": "javascriptreact",
+    "*.css": "tailwindcss"
   }
 }
