@@ -64,6 +64,11 @@ export default function HomePage() {
           不可控表單元件 ( /ch6-form/uncontrolled )
         </a>
         <br />
+        <h4>CH7</h4>
+        <a href="/ch7-use-effect/pattern">
+          useEffect() 應用 ( /ch7-use-effect/pattern )
+        </a>
+        <br />
       </div>
     </>
   );
