@@ -69,6 +69,10 @@ export default function HomePage() {
           useEffect() 應用 ( /ch7-use-effect/pattern )
         </a>
         <br />
+        <a href="/ch7-use-effect/product-v2">
+          useEffect() 練習 - 商品列表v2 ( /ch7-use-effect/product-v2 )
+        </a>
+        <br />
       </div>
     </>
   );
