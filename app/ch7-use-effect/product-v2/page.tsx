@@ -13,6 +13,7 @@ interface Product {
 }
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 // 導入next提供的有自動圖片最佳化的元件
 import Image from 'next/image';
 // 導入css樣式
@@ -61,7 +62,11 @@ export default function ProductV2Page() {
                     loading="eager"
                   />
                 </td>
-                <td>{product.name}</td>
+                <td>
+                  <Link href={`./product-v2/${product.id}`}>
+                    {product.name}
+                  </Link>
+                </td>
                 <td>{product.price}</td>
               </tr>
             );
