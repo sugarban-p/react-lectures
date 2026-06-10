@@ -60,6 +60,10 @@ export default function HomePage() {
         <h4>CH6</h4>
         <a href="/ch6-form/controlled">可控表單元件 ( /ch6-form/controlled )</a>
         <br />
+        <a href="/ch6-form/uncontrolled">
+          不可控表單元件 ( /ch6-form/uncontrolled )
+        </a>
+        <br />
       </div>
     </>
   );
