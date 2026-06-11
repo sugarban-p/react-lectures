@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import CssLoader from '../_components/css-loader';
 
 // 呼叫 API 用的，不用加 "/detail?id="
 const url =
@@ -31,13 +32,21 @@ export default function DetailPage() {
       } else {
         setProduct(resData);
       }
-      setIsLoading(false);
+      // 強制延長載入動畫
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     };
     getProduct();
   }, [id]);
 
   if (isLoading) {
-    return <h3>載入中...</h3>;
+    return (
+      <>
+        <h3>載入中...</h3>
+        <CssLoader></CssLoader>
+      </>
+    );
   }
   if (!product) {
     return (
