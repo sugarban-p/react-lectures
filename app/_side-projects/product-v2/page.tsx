@@ -36,6 +36,7 @@ export default function ProductV2Page() {
             <th>圖片</th>
             <th>名稱</th>
             <th>價格</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -52,12 +53,17 @@ export default function ProductV2Page() {
                     loading="eager"
                   />
                 </td>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
                 <td>
                   <Link href={`./product-v2/${product.id}`}>
-                    {product.name}
+                    查看詳情 (動態路由)
+                  </Link>
+                  <br />
+                  <Link href={`./product-v2/detail?id=${product.id}`}>
+                    查看詳情 (固定路由)
                   </Link>
                 </td>
-                <td>{product.price}</td>
               </tr>
             );
           })}
